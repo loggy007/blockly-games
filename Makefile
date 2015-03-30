@@ -18,6 +18,14 @@ BLOCKY_DIR = $(PWD)
 
 all: deps languages
 
+q36031172_hw5-en: common-en
+	$(SOY_COMPILER) --outputPathFormat appengine/q36031172_hw5/generated/en/soy.js --srcs appengine/q36031172_hw5/template.soy
+	python build-app.py q36031172_hw5 en
+
+homeworkas-en: common-en
+	$(SOY_COMPILER) --outputPathFormat appengine/homeworkas/generated/en/soy.js --srcs appengine/homeworkas/template.soy
+	python build-app.py homeworkas en
+
 index-en:
 	mkdir -p appengine/generated/en/
 	$(SOY_COMPILER) --outputPathFormat appengine/index/generated/en/soy.js --srcs appengine/index/template.soy

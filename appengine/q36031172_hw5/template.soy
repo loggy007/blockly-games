@@ -1,0 +1,113 @@
+{namespace Q36031172_Hw5.soy}
+
+/**
+ * This is a Closure Template.
+ *
+ * To regenerate just English, run:
+ *   make pinball-en
+ *
+ * To regenerate all languages, run:
+ *   make languages
+ */
+
+/**
+ * Translated messages for use in JavaScript.
+ */
+{template .messages}
+  <div style="display: none">
+     Pinball is an arduino-based educational toy!    
+  </div>
+{/template}
+
+
+
+/**
+ * Web page structure.
+ */
+{template .start}
+  {call .messages /}
+  <table id="header" width="100%">
+    <tr>
+
+      <td valign="bottom">
+        <h1>
+          {call BlocklyGames.soy.titleSpan}
+            {param appName}
+              {msg meaning="Games.pinball" desc="IBID"}Pinball{/msg}
+            {/param}
+          {/call}
+        </h1>
+      </td>
+      <td class="farSide">
+
+        <select id="languageMenu"></select>
+        &nbsp;
+        
+      </td>
+    </tr>
+  </table>
+  
+  {call .toolbox /}
+  <div id="blockly"></div>
+
+  {call BlocklyGames.soy.dialog /}
+  <div id="help" class="dialogHiddenContent">
+    <table width="100%">
+    <tr>
+      <td>
+        <img alt="NCKU" src="q36031172_hw5/ncku.gif" height="70" width="300"  class="position_image_NCKU">
+      </td>
+      <td>
+        <div style="padding-bottom: 0.7ex">
+          {msg meaning="Pinball.helpText"
+               desc="Instructions for the pinball."}
+            If you like pinball, please support us in our facebook fan page. 
+          {/msg}
+        </div>
+        <iframe style="height: 400px; width: 100%; border: none;" src="q36031172_hw5/q36031172_hw5_blockly.html?lang={$ij.lang}"></iframe> 
+      
+      </td>
+    </table>
+    </tr>
+  </div>
+
+  <div id="executeProgram" class="dialogHiddenContent">
+    <div id="execute">
+    </div>
+    <div id="graph"><div id="graphValue"></div></div>
+    {call BlocklyGames.soy.ok /}
+  </div>
+{/template}
+
+
+/**
+ * Toolboxes for each level.
+ */
+{template .toolbox}
+<xml id="toolbox" style="display: none">
+  <category name="Q36031172_Hw5">
+    <category name="move">
+    <block type="x"></block>
+    <block type="count"></block>
+    <block type="s_x"></block>
+    <block type="s_y"></block>
+    <block type="y"></block>
+    <block type="ifelse"></block>
+    <block type="if"></block>
+    <block type="for"></block>
+    <block type="start"></block>
+    </category>
+  </category>
+
+</xml>
+{/template}
+
+
+/**
+ * Readonly Blockly in an iframe.
+ */
+{template .readonly}
+  {call .messages /}
+  <div id="blockly"></div>
+{/template}
+
