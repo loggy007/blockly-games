@@ -39,6 +39,8 @@ Blockly.Blocks['x'] = {
     this.appendValueInput("NAME")
         .setCheck("Number")
         .appendField("x=");
+    this.setPreviousStatement(true, "null");
+    this.setNextStatement(true, "null");
     this.setTooltip('');
   }
 };
@@ -57,6 +59,8 @@ Blockly.Blocks['y'] = {
     this.appendValueInput("NAME")
         .setCheck("Number")
         .appendField("y=");
+    this.setPreviousStatement(true, "null");
+    this.setNextStatement(true, "null");
     this.setTooltip('');
   }
 };
